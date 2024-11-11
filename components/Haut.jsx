@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Box, TextField, Button } from "@mui/material";
 
 function Haut ({bandilista}) {
 
@@ -78,7 +79,7 @@ function Haut ({bandilista}) {
 
             if (nimibandit.length > 0) {
                 return (
-                    <div>
+                    <Box>
                         {nimibandit.map (bandi => {
                             return (
                                 <p> {bandi.nimi} <br/> 
@@ -90,13 +91,13 @@ function Haut ({bandilista}) {
                                 </p>
                             )
                         })}
-                    </div>
+                    </Box>
                 )
             } else {
                 return(
-                    <div>
+                    <Box>
                         <p>Hakemallasi nimellä ei löytynyt bändejä.</p>
-                    </div>
+                   </Box>
                 )
             }
         }
@@ -110,7 +111,7 @@ function Haut ({bandilista}) {
 
             if (paikkakuntaBandit.length > 0 ){
                 return(
-                    <div>
+                    <Box>
                         {paikkakuntaBandit.map (bandi => {
                         return ( 
                             <p> 
@@ -122,13 +123,13 @@ function Haut ({bandilista}) {
                             Jäsenmäärä: {bandi.jasenmaara} <br/>
                             </p>
                         )})}
-                    </div>
+                 </Box>
             )
         } else {
             return (
-                <div>
+                <Box>
                 <p> Hakemallasi paikkakunnalla ei löytynyt bändejä. </p>
-                </div>
+                </Box>
             )
     }
 }
@@ -143,7 +144,7 @@ function Haut ({bandilista}) {
 
             if (genreBandit.length > 0) { 
                 return(
-                    <div>
+                    <Box>
                         {genreBandit.map (bandi => {
                             return (
                                 <p> {bandi.nimi} <br/> 
@@ -154,13 +155,13 @@ function Haut ({bandilista}) {
                                 Jäsenmäärä: {bandi.jasenmaara} <br/>
                                 </p>
                             )})}
-                </div>
+               </Box>
             )
         } else {
             return (
-            <div>
+            <Box>
                 <p> Hakemallasi genrellä ei löytynyt bändejä. </p>
-            </div>
+            </Box>
         )
     }
 }
@@ -202,25 +203,54 @@ function Haut ({bandilista}) {
                     };
 
 return (
-<>
-<label> Etsi bändin nimellä: 
-    <input type = "text" name = "bandinimi" value = {nimi} onChange = {muutaNimi}/>
-    <input type = "button" value = "Etsi" onClick = {nimiNakyy}/> <br/>
-</label>
-<label>Etsi paikkakunnalla:
-    <input type = "text" name = "pkunta" value = {kunta} onChange = {muutaKunta}/> 
-    <input type = "button" value = "Etsi" onClick = {naytaPK}/> <br/>
-</label>
+    <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box>
+      <TextField
+        label="Etsi bändin nimellä"
+        name="bandinimi"
+        value={nimi}
+        onChange={muutaNimi}
+        sx={{backgroundColor: 'orange'}}
+        variant="outlined"
+      />
+      <Button variant="contained" onClick={nimiNakyy}>
+        Etsi
+      </Button>
+    </Box>
 
-<label>Etsi genrellä:
-    <input type = "text" name = "genre" value = {genre} onChange = {muutaGenre}/>
-    <input type = "button" value = "Etsi" onClick = {genreNakyy}/> <br/>
-</label>
+    <Box>
+      <TextField
+        label="Etsi paikkakunnalla"
+        name="pkunta"
+        value={kunta}
+        onChange={muutaKunta}
+        sx={{backgroundColor: 'orange'}}
+        variant="outlined"
+      />
+      <Button variant="contained" onClick={naytaPK}>
+        Etsi
+      </Button>
+    </Box>
 
-<label>Näytä bändit, joissa on muitakin kuin miehiä:
-    <input type = "button" value = "Näytä" onClick = {muutKuinMiehet}/> <br/>
-</label>
+    <Box>
+      <TextField
+        label="Etsi genrellä"
+        name="genre"
+        value={genre}
+        onChange={muutaGenre}
+        sx={{backgroundColor: 'orange'}}
+        variant="outlined"
+      />
+      <Button variant="contained" onClick={genreNakyy}>
+        Etsi
+      </Button>
+    </Box>
 
+    <Box>
+      <Button variant="contained" onClick={muutKuinMiehet}>
+        Näytä bändit, joissa on muitakin kuin miehiä
+      </Button>
+    </Box>
 
 
 
@@ -229,7 +259,7 @@ return (
 {genreBandit()}
 {naytaMuutBandit()}
 {nimiBandi()}
-</>
+</Box>
 )
 }
 

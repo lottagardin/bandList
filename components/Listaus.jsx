@@ -1,4 +1,5 @@
 
+import { Box, Typography } from "@mui/material";
 
 function Listaus ({bandilista}) {
 
@@ -8,20 +9,26 @@ function Listaus ({bandilista}) {
             return (<p>Ei listattavaa</p>)
         }else {
             return(
-                <div>
-                    {bandilista.map (bandi => {
-                        return (
-                            <p> {bandi.nimi} <br/> 
-                            Paikkakunta: {bandi.paikkakunta} <br/>
-                            Genre: {bandi.genre} <br/>
-                            Ruoka-aine allergiat: {bandi.allergiat} <br/>
-                            Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'} <br/>
-                            Jäsenmäärä: {bandi.jasenmaara} <br/>
-                            </p>
-                        );
-                    })
-                }
-                </div>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                {bandilista.map((bandi, index) => (
+                 <Box>
+                    <Typography variant="h6">{bandi.nimi}</Typography>
+                    <Typography variant="body1">
+                      Paikkakunta: {bandi.paikkakunta}
+                    </Typography>
+                    <Typography variant="body1">Genre: {bandi.genre}</Typography>
+                    <Typography variant="body1">
+                      Ruoka-aine allergiat: {bandi.allergiat}
+                    </Typography>
+                    <Typography variant="body1">
+                      Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'}
+                    </Typography>
+                    <Typography variant="body1">
+                      Jäsenmäärä: {bandi.jasenmaara}
+                    </Typography>
+                </Box>
+                ))}
+              </Box>
             )
         
         }

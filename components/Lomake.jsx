@@ -4,7 +4,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-
+import { TextField, Button, Box } from '@mui/material';
 
 import { useEffect } from 'react';
 
@@ -37,23 +37,60 @@ useEffect (() => {
 }, [bandilista]);
 
 return (
-    <>
-    <form>
-        <label>Nimi:
-            <input type = "text" name = "nimi" value = {bandi.nimi} onChange = {muuta}/> <br/>
-        </label>
-        <label>Paikkakunta:
-            <input type = "text" name = "paikkakunta" value = {bandi.paikkakunta} onChange = {muuta}/> <br/>
-        </label>
-        <label>Genre: 
-            <input type = "text" name = "genre" value = {bandi.genre} onChange = {muuta}/> <br/>
-        </label>
-        <label>Jäsenmäärä:
-            <input type = "number" name = "jasenmaara" value = {bandi.jasenmaara} onChange = {muuta}/> <br/>
-        </label>
-        <label>Ruoka-aine allergiat:
-                <input type = "text" name = "allergiat" value = {bandi.allergiat} onChange = {muuta}/> <br/> <br/>
-        </label>
+    <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box >
+    <TextField
+        label="Nimi"
+        name="nimi"
+        value={bandi.nimi}
+        onChange={muuta}
+        fullWidth
+        margin="normal"
+        sx={{backgroundColor: 'orange'}}
+      />
+
+      <TextField
+        label="Paikkakunta"
+        name="paikkakunta"
+        value={bandi.paikkakunta}
+        onChange={muuta}
+        fullWidth
+        margin="normal"
+        sx={{backgroundColor: 'orange'}}
+    
+      />
+
+      <TextField
+        label="Genre"
+        name="genre"
+        value={bandi.genre}
+        onChange={muuta}
+        fullWidth
+        margin="normal"
+        sx={{backgroundColor: 'orange'}}
+
+      />
+
+      <TextField
+        label="Jäsenmäärä"
+        type="number"
+        name="jasenmaara"
+        value={bandi.jasenmaara}
+        onChange={muuta}
+        fullWidth
+        margin="normal"
+        sx={{backgroundColor: 'orange'}}
+      />
+
+      <TextField
+        label="Ruoka-aine allergiat"
+        name="allergiat"
+        value={bandi.allergiat}
+        onChange={muuta}
+        fullWidth
+        margin="normal"
+        sx={{backgroundColor: 'orange'}}
+      />
        
         <FormControl>
             <FormLabel>Onko bändissä vain miehiä?</FormLabel>
@@ -68,17 +105,17 @@ return (
             </FormControl>
 
 
-        <br/>
+    
  
 
-    </form>
+        </Box>
 
-    <input type = "button" value = "Lisää Bändi" onClick = {lisaaBandi}/>
-
-
+    <Button variant="contained" onClick = {lisaaBandi}>Lisää bändi</Button>
 
 
-    </>
+
+
+    </Box>
 )
 }
 

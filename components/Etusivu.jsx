@@ -1,3 +1,5 @@
+import { Box, Typography} from "@mui/material";
+
 
 function Etusivu () {
 
@@ -6,12 +8,10 @@ function Etusivu () {
 return (
 
 
-<div>
-    <h1>Oranssilla soittaneet bändit</h1>
-    <p>Tämä sivusto pitää sisällään Oranssilla soittaneet bändit. Voit lisätä bändin, selata listaa Oranssilla soittaneista bändeistä tai etsiä bändejä listasta.</p> 
-
-
-</div>
+<Box component='h1' sx={{ backgroundColor:'orange', color: 'brown', textAlign: 'center'}}>
+   <Typography variant="h2">Oranssilla soittaneet bändit </Typography> 
+   <Typography variant="body1">Tämä sivusto pitää sisällään Oranssilla soittaneet bändit. Voit lisätä bändin, selata listaa Oranssilla soittaneista bändeistä tai etsiä bändejä listasta.</Typography>
+    </Box>
 )
    
 }
