@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, TextField, Button } from "@mui/material";
+import { Box, TextField, Button, Typography } from "@mui/material";
 
 function Haut ({bandilista}) {
 
@@ -82,13 +82,13 @@ function Haut ({bandilista}) {
                     <Box>
                         {nimibandit.map (bandi => {
                             return (
-                                <p> {bandi.nimi} <br/> 
+                                <Typography variant='body1'> {bandi.nimi} <br/>
                                 Paikkakunta: {bandi.paikkakunta} <br/>
                                 Genre: {bandi.genre} <br/>
                                 Ruoka-aine allergiat: {bandi.allergiat} <br/>
                                 Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'} <br/>
                                 Jäsenmäärä: {bandi.jasenmaara} <br/>
-                                </p>
+                                </Typography> 
                             )
                         })}
                     </Box>
@@ -96,7 +96,7 @@ function Haut ({bandilista}) {
             } else {
                 return(
                     <Box>
-                        <p>Hakemallasi nimellä ei löytynyt bändejä.</p>
+                        <Typography variant='body1'> Hakemallasi nimellä ei löytynyt bändejä.</Typography>
                    </Box>
                 )
             }
@@ -114,21 +114,21 @@ function Haut ({bandilista}) {
                     <Box>
                         {paikkakuntaBandit.map (bandi => {
                         return ( 
-                            <p> 
+                            <Typography variant='body1'> 
                             {bandi.nimi} <br/> 
                             Paikkakunta: {bandi.paikkakunta} <br/>
                             Genre: {bandi.genre} <br/>
                             Ruoka-aine allergiat: {bandi.allergiat} <br/>
                             Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'} <br/>
                             Jäsenmäärä: {bandi.jasenmaara} <br/>
-                            </p>
+                            </Typography>
                         )})}
                  </Box>
             )
         } else {
             return (
                 <Box>
-                <p> Hakemallasi paikkakunnalla ei löytynyt bändejä. </p>
+                <Typography variant='body1'>  Hakemallasi paikkakunnalla ei löytynyt bändejä. </Typography>
                 </Box>
             )
     }
@@ -147,13 +147,13 @@ function Haut ({bandilista}) {
                     <Box>
                         {genreBandit.map (bandi => {
                             return (
-                                <p> {bandi.nimi} <br/> 
+                                <Typography variant='body1'> {bandi.nimi} <br/> 
                                 Paikkakunta: {bandi.paikkakunta} <br/>
                                 Genre: {bandi.genre} <br/>
                                 Ruoka-aine allergiat: {bandi.allergiat} <br/>
                                 Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'} <br/>
                                 Jäsenmäärä: {bandi.jasenmaara} <br/>
-                                </p>
+                                </Typography>
                             )})}
                </Box>
             )
@@ -177,26 +177,26 @@ function Haut ({bandilista}) {
             if (muutBandit.length > 0) {
                 return (
               
-                    <div>
-                        <p><h3>Bändit, joissa on muitakin, kuin miehiä</h3></p>
+                    <Box>
+                        <Typography variant='h3'> Bändit, joissa on muitakin, kuin miehiä</Typography>
                         {muutBandit.map (bandi => {
                             return (
-                                    <p> 
+                                <Typography variant='body1'> 
                                     {bandi.nimi} <br/> 
                                     Paikkakunta: {bandi.paikkakunta} <br/>
                                     Genre: {bandi.genre} <br/>
                                     Ruoka-aine allergiat: {bandi.allergiat} <br/>
                                     Bändissä on vain miehiä: {bandi.vainmiehia ? 'Kyllä' : 'Ei'} <br/>
                                     Jäsenmäärä: {bandi.jasenmaara} <br/>
-                                    </p>
+                                    </Typography>
                                         )})}
-                                    </div>
+                                    </Box>
                                 );
                             } else {
                                 return (
-                                <div>
-                                    <p>Listassa ei ole bändejä, joissa soittaa muita kuin miehiä.</p>
-                                </div>
+                                <Box>
+                                        <Typography variant='body1'> Listassa ei ole bändejä, joissa soittaa muita kuin miehiä.</Typography>
+                                </Box>
                                 )
                             }
                             }                           

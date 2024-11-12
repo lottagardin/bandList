@@ -1,15 +1,13 @@
-import {Tabs, Tab, Box, AppBar, IconButton, Menu, MenuItem, ListItemIcon,ListItemText, Drawer, ListItemButton, List, ListItem}  from "@mui/material";
+import {Tabs, Tab, Box}  from "@mui/material";
 import { useState } from "react";
-import Lomake from "./Lomake";
-import Listaus from "./Listaus";
-import Etusivu from "./Etusivu";
-import Haut from "./Haut";
+import Lomake from "../components/Lomake";
+import Listaus from "../components/Listaus";
+import Etusivu from "../components/Etusivu";
+import Haut from "../components/Haut";
 import { Link } from "react-router-dom";
 
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
+
 import FeedIcon from '@mui/icons-material/Feed';
-import TuneIcon from '@mui/icons-material/Tune';
 import MenuIcon from '@mui/icons-material/Menu';
 import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
